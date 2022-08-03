@@ -79,9 +79,9 @@ namespace Multi_test_2
 				}
 				return true;
 			}
-			public static string Előjel(int a) => a < 0 ? "-" : "+";
+			public static string Előjel(int a) => a < 0 ? "" : "+";
 			public static string boolstr(bool b) => b ? "I" : "H";
-			public override string ToString() => $"{Név}({x};{y}), ({Előjel(vx)}{vx}, {Előjel(vx)}{vy}), {boolstr(Vár)}{boolstr(Kész)}";
+			public override string ToString() => $"{Név}({x};{y}), ({Előjel(vx)}{vx}, {Előjel(vy)}{vy}), {boolstr(Vár)}{boolstr(Kész)}";
 
 			public static void ok_elindítása()
 			{
@@ -94,10 +94,7 @@ namespace Multi_test_2
 			{
 				foreach (Játékos játékos in Játékos.lista)
 					if (!játékos.Kész)
-					{
-						Console.WriteLine($"{játékos} még nincs kész!");
 						return true;
-					}
 				return false;
 			}
 
@@ -189,20 +186,20 @@ namespace Multi_test_2
 			Thread.Sleep(várakozási_idő);
 			while (Játékos.ok_közül_valaki_még_nincs_kész())
 			{
-				Console.WriteLine("Játékvezető: A játékosok közül valaki még nincs kész.");
+//				Console.WriteLine("Játékvezető: A játékosok közül valaki még nincs kész.");
 				if (Játékos.ok_mindegyike_várakozik_vagy_kész())
 				{
-					Console.WriteLine("Játékvezető: A játékosok mind rám várnak.");
+	//				Console.WriteLine("Játékvezető: A játékosok mind rám várnak.");
 					Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - - - - - ");
 					Játékos.ok_elindítása();
 				}
 				else
 				{
-					Console.WriteLine("Játékvezető: A játékosok valamelyike nem várakozik.");
+		//			Console.WriteLine("Játékvezető: A játékosok valamelyike nem várakozik.");
 				}
 				Thread.Sleep(várakozási_idő);
 			}
-			Console.WriteLine("Játékvezető: A játékosok közül már mindenki készen van.");
+			//Console.WriteLine("Játékvezető: A játékosok közül már mindenki készen van.");
 
 
 
